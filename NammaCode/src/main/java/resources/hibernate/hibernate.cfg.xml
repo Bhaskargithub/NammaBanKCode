@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<!-- <exclude-unlisted-classes>true</exclude-unlisted-classes> -->
+<hibernate-configuration>
+
+	<session-factory>
+		<!-- DB connection settings -->
+
+		<property name="connection.driver_class">org.postgresql.Driver</property>
+		<property name="connection.url">jdbc:postgresql://127.0.0.1:5432/NammaDatabase</property>
+		<property name="connection.username">postgres</property>
+		<property name="connection.password">bhaskar</property>
+		<!-- <property name="connection.username">${database.local.username}</property>
+		<property name="connection.password">${database.password}</property> -->
+		<!-- <property name="connection.driver_class">com.mysql.jdbc.Driver</property> 
+			<property name="connection.url">jdbc:mysql://127.0.0.1:3306/NammaDatabase</property> 
+			<property name="connection.username">root</property> <property name="connection.password">bhaskar</property> -->
+
+		<property name="connection.pool_size">1</property>
+		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="current_session_context_class">thread</property>
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+		<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
+
+		<property name="show_sql">true</property>
+
+		<property name="hbm2ddl.auto">create</property>
+		<!-- <property name="hbm2ddl.auto">validate</property> -->
+
+
+		<!-- <mapping class="org.hibernate.tutorial.annotation.event"/> -->
+		 <mapping class="org.nammabank.modelObjects.UserInfo" /> 
+		<mapping class="org.nammabank.modelObjects.BankDetail" />
+		
+	</session-factory>
+</hibernate-configuration>
